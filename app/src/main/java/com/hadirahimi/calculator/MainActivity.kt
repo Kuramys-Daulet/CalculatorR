@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity()
                                 }
                             }
                         }
+
                         buttonText == "C"->{
                             currentNumber = ""
                             firstnumber = ""
@@ -90,6 +91,21 @@ class MainActivity : AppCompatActivity()
                             tvResult.text = "0"
                             tvFormula.text = ""
                         }
+                        buttonText == "←" -> {
+                            if (tvResult.text.isNotEmpty()) {
+                                if (currentNumber.isNotEmpty()) {
+                                    currentNumber = currentNumber.substring(0, currentNumber.length - 1)
+                                    tvResult.text = currentNumber
+                                } else if (currentOperator.isNotEmpty()) {
+                                    currentOperator = ""
+                                    tvResult.text = firstnumber
+                                } else if (firstnumber.isNotEmpty()) {
+                                    firstnumber = firstnumber.substring(0, firstnumber.length - 1)
+                                    tvResult.text = firstnumber
+                                }
+                            }
+                        }
+
                     }
                 }
             }
